@@ -159,14 +159,14 @@ class Fixture(object):
 class ZookeeperFixture(Fixture):
     @classmethod
     def instance(cls):
-        if "ZOOKEEPER_URI" in os.environ:
-            parse = urlparse(os.environ["ZOOKEEPER_URI"])
-            (host, port) = (parse.hostname, parse.port)
-            fixture = ExternalService(host, port)
-        else:
-            (host, port) = ("127.0.0.1", None)
-            fixture = cls(host, port)
-
+        #if "ZOOKEEPER_URI" in os.environ:
+        #    parse = urlparse(os.environ["ZOOKEEPER_URI"])
+        #    (host, port) = (parse.hostname, parse.port)
+        #    fixture = ExternalService(host, port)
+        #else:
+        #    (host, port) = ("127.0.0.1", None)
+        #    fixture = cls(host, port)
+        fixture = ExternalService("qaskfk1547.coupadev.com", 9092)
         fixture.open()
         return fixture
 
